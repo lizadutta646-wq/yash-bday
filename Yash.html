@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Yash 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+html{scroll-behavior:smooth}
+
+.constellation{
+
+ position:fixed;
+ top:0;
+ left:0;
+ width:200%;
+ height:200%;
+
+ background-image:
+ radial-gradient(white 1px, transparent 1px),
+ radial-gradient(white 1px, transparent 1px);
+
+ background-size:120px 120px;
+ background-position:0 0, 60px 60px;
+ opacity:0.4;
+ animation: rotateSky 180s linear infinite;
+ pointer-events:none;
+}
+
+@keyframes rotateSky{
+ from{
+  transform:rotate(0deg);
+ }
+ to{
+  transform:rotate(360deg);
+ }
+}
+
+/*Spotify*/
+.spotify-section{
+text-align:center;
+margin:100px auto;
+}
+
+.spotify-title{
+font-size:30px;
+margin-bottom:40px;
+}
+
+.song-grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+}
+
+.song-card{
+width:170px;
+padding:15px;
+border-radius:18px;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(12px);
+cursor:pointer;
+transition:0.4s;
+position:relative;
+
+box-shadow:
+0 0 15px rgba(139, 244, 153, 0.4),
+0 0 30px #7ed6214d;
+}
+
+.song-card:hover{
+transform:translateY(-8px) scale(1.05);
+box-shadow:
+0 0 25px rgba(110, 191, 229, 0.8),
+0 0 40px rgba(225, 81, 230, 0.6);
+
+}
+
+.album{
+width:100%;
+border-radius:12px;
+margin-bottom:10px
+}
+
+.play-icon{
+position:absolute;
+top:45%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:26px;
+opacity:0.9;
+}
+
+.song-title{
+margin-top:5px;
+font-size:14px;
+}
+
+.visualizer{
+display:flex;
+justify-content:center;
+gap:4px;
+margin-top:8px;
+opacity:0;
+}
+
+.visualizer span{
+width:4px;
+height:12px;
+background:white;
+animation:musicBars 0.6s infinite alternate;
+}
+
+.visualizer span:nth-child(2){
+animation-delay:0.2s;
+}
+
+.visualizer span:nth-child(3){
+animation-delay:0.4s; 
+}
+
+/*movement of tiles*/
+@keyframes musicBars{
+from{height:6px}
+to{height:18px}
+}
+
+.song-card.playing .visualizer{
+opacity:1;
+}
+
+body{
+ margin:0;
+ font-family:'Segoe UI',sans-serif;
+ background:radial-gradient(circle at bottom,#0f172a,#020617);
+ color:white;
+ overflow-x:hidden;
+}
+
+section{
+ min-height:100vh;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding:40px;
+ position:relative;
+}
+
+h1{font-size:3rem;margin-bottom:10px}
+
+button{
+ padding:12px 28px;
+ border:none;
+ border-radius:30px;
+ background:#f472b6;
+ color:white;
+ font-size:16px;
+ cursor:pointer;
+ box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* NIGHT SKY */
+.star{
+ position:fixed;
+ width:2px;
+ height:2px;
+ background:white;
+ border-radius:50%;
+ opacity:0.8;
+ animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+ from{opacity:0.2}
+ to{opacity:1}
+}
+
+/* TYPEWRITER */
+#typed{
+ font-size:18px;
+ max-width:650px;
+ line-height:1.6;
+}
+
+/* MEMORY STARS */
+.glowstar{
+ position:absolute;
+ font-size:22px;
+ cursor:pointer;
+ filter:drop-shadow(0 0 6px white);
+ transition:transform .2s;
+}
+
+.glowstar:hover{transform:scale(1.4)}
+
+.messageBox{
+ display:none;
+ margin-top:15px;
+ background:#111827;
+ padding:15px;
+ border-radius:10px;
+ max-width:300px;
+}
+
+/* POLAROID PHOTOS */
+.gallery{
+ display:flex;
+ gap:30px;
+ flex-wrap:wrap;
+ justify-content:center;
+}
+
+.polaroid{
+ background:white;
+ color:black;
+ padding:10px;
+ border-radius:8px;
+ width:180px;
+ transform:rotate(-3deg);
+ box-shadow:0 10px 25px rgba(0,0,0,.5);
+ transition:.3s;
+ animation:floatPhoto 6s ease-in-out infinite;
+}
+
+.polaroid:hover{transform:rotate(0deg) scale(1.05)}
+
+.polaroid img{width:100%;border-radius:5px}
+
+.caption{font-size:20px;margin-top:6px; font-family:'Patrick Hand', cursive;}
+
+@keyframes floatPhoto{
+ 0%{transform:translateY(0)}
+ 50%{transform:translateY(-10px)}
+ 100%{transform:translateY(0)}
+}
+
+/* DISCORD POPUP */
+#discordPopup{
+ position:fixed;
+ right:20px;
+ top:20px;
+ background:#5865F2;
+ padding:15px 20px;
+ border-radius:12px;
+ color:white;
+ display:none;
+ box-shadow:0 10px 20px rgba(0,0,0,.4);
+}
+
+/* CONFETTI */
+.confetti{
+ position:fixed;
+ width:8px;
+ height:8px;
+ top:-10px;
+ animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+ to{transform:translateY(110vh) rotate(360deg)}
+}
+
+/* FIREWORK */
+.firework{
+ position:fixed;
+ width:6px;
+ height:6px;
+ border-radius:50%;
+}
+
+/* SHOOTING STAR */
+.shooting-star{
+ position:fixed;
+ width:3px;
+ height:3px;
+ background:white;
+ box-shadow:0 0 6px white,0 0 12px white;
+ transform:rotate(45deg);
+}
+
+@keyframes shoot{
+ 0%{transform:translate(0,0) rotate(45deg);opacity:1}
+ 100%{transform:translate(400px,400px) rotate(45deg);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" autoplay>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="discordPopup">🔔 Discord Notification<br>Liza: A memory unlocked...</div>
+
+<script>
+
+/* NIGHT SKY STARS */
+for(let i=0;i<120;i++){
+ const s=document.createElement('div')
+ s.className='star'
+ s.style.left=Math.random()*100+'%'
+ s.style.top=Math.random()*100+'%'
+ s.style.animationDuration=(2+Math.random()*3)+'s'
+ document.body.appendChild(s)
+}
+
+/* DISCORD POPUP */
+setTimeout(()=>{
+ const d=document.getElementById('discordPopup')
+ d.style.display='block'
+ setTimeout(()=>d.style.display='none',4000)
+},4000)
+
+/* TYPEWRITER MESSAGE */
+const text="Yoooooo!! Yash... Wanna say that sometimes the internet randomly connects people. Out of thousands of random Discord conversations, meeting you turned out to be one of the nicest surprise. You're a wonderful person. I'm really glad we were on the same server. ✨";
+
+let i=0
+function typing(){
+ if(i<text.length){
+  document.getElementById('typed').innerHTML+=text.charAt(i)
+  i++
+  setTimeout(typing,45)
+ }
+}
+
+window.onload=()=>{typing()}
+
+/* MEMORY STAR MESSAGE */
+function reveal(msg,id){
+ const box=document.getElementById(id)
+ box.innerText=msg
+ box.style.display='block'
+}
+
+/*SPOTIFY*/
+function playSong(id,card){
+const songs = document.querySelectorAll("audio")
+const cards = document.querySelectorAll(".song-card")
+const selected = document.getElementById(id)
+
+// if the clicked song is already playing → pause it
+if(!selected.paused){
+selected.pause()
+selected.currentTime = 0
+card.classList.remove("playing")
+return
+}
+
+// otherwise pause all songs first
+songs.forEach(song=>{
+song.pause()
+song.currentTime = 0
+})
+
+// remove glow from all cards
+cards.forEach(c=>{
+c.classList.remove("playing")
+})
+
+// play selected song
+selected.play()
+
+// highlight the active card
+card.classList.add("playing")
+
+}
+
+/* CONFETTI */
+function launchConfetti(){
+ for(let i=0;i<80;i++){
+  const c=document.createElement('div')
+  c.className='confetti'
+  c.style.left=Math.random()*100+'%'
+  c.style.background=`hsl(${Math.random()*360},70%,60%)`
+  c.style.animationDuration=(2+Math.random()*2)+'s'
+  document.body.appendChild(c)
+  setTimeout(()=>c.remove(),4000)
+ }
+}
+
+/* FIREWORKS */
+function fireworks(){
+ for(let i=0;i<50;i++){
+  const f=document.createElement('div')
+  f.className='firework'
+  f.style.left='50%'
+  f.style.top='50%'
+  f.style.background=`hsl(${Math.random()*360},80%,60%)`
+
+  const angle=Math.random()*360
+  const dist=100+Math.random()*200
+
+  f.animate([
+   {transform:'translate(0,0)'},
+   {transform:`translate(${Math.cos(angle)*dist}px,${Math.sin(angle)*dist}px)`}
+  ],{duration:1200})
+
+  document.body.appendChild(f)
+  setTimeout(()=>f.remove(),1200)
+ }
+}
+
+/* WHY WE MET SCROLL REVEAL */
+const whySection=document.querySelector('.why-we-met')
+
+/* SHOOTING STAR GENERATOR */
+function createShootingStar(){
+ const star=document.createElement('div')
+ star.className='shooting-star'
+
+ star.style.left=Math.random()*window.innerWidth+'px'
+ star.style.top=Math.random()*200+'px'
+
+ star.style.animation='shoot 1.5s linear'
+
+ document.body.appendChild(star)
+
+ setTimeout(()=>star.remove(),1500)
+}
+
+setInterval(createShootingStar,3000)
+
+window.addEventListener('scroll',()=>{
+ const pos=whySection.getBoundingClientRect().top
+ const screen=window.innerHeight
+ if(pos<screen-100){whySection.classList.add('visible')}
+})
+
+
+</script>
+
+<section>
+<h1>Happy Birthday Yash 🎉🎂</h1>
+<p>Scroll down through the stars ✨ </p>
+   <p> (don't forget to play the music first)</p>
+</p>
+<button onclick="document.getElementById('music').play()">Play Music 🎵</button>
+</section>
+
+<section>
+<h2>A message for you 📨</h2>
+<p id="typed"></p>
+</section>
+
+<section>
+<h2> Stars ⭐(click what glows)</h2>
+
+<div class="glowstar" style="top:40%;left:30%" onclick="reveal('You always make conversations fun. 😂', 'm1')">⭐</div>
+<div class="glowstar" style="top:60%;left:50%" onclick="reveal('Finally Discord did something right when we joined the server vc at the same time.😌', 'm2')">⭐</div>
+<div class="glowstar" style="top:50%;left:70%" onclick="reveal('Musckell man 💪🏼', 'm3')">⭐</div>
+<div class="glowstar" style="top:60%;left:15%" onclick="reveal('Daamnnn ! We are on same freak-uency 😊', 'm4')">⭐ </div>
+<div id="m1" class="messageBox"></div>
+<div id="m2" class="messageBox"></div>
+<div id="m3" class="messageBox"></div>
+<div id="m4" class="messageBox"></div>
+
+</section>
+
+
+<section class="spotify-section">
+<h2 class="spotify-title">🎵 Your recent favourites 🎵</h2>
+<div class="song-grid">
+
+<div class="song-card" onclick="playSong('song1', this)">
+<img src="cover1.png" class="album">
+<div class="play-icon">▶</div>
+<div class="song-title">Banda Bamb</div>
+<div class="visualizer">
+<span></span><span></span><span></span>
+</div>
+<audio id="song1">
+<source src="song1.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="song-card" onclick="playSong('song2', this)">
+<img src="cover2.png" class="album">
+<div class="play-icon">▶</div>
+<div class="song-title">Falani</div>
+<div class="visualizer">
+<span></span><span></span><span></span>
+</div>
+<audio id="song2">
+<source src="song2.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="song-card" onclick="playSong('song3', this)">
+<img src="cover3.png" class="album">
+<div class="play-icon">▶</div>
+<div class="song-title">No me Conoce</div>
+<div class="visualizer">
+<span></span><span></span><span></span>
+</div>
+<audio id="song3">
+<source src="song3.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="song-card" onclick="playSong('song4', this)">
+<img src="cover4.png" class="album">
+<div class="play-icon">▶</div>
+<div class="song-title">Timeless</div>
+<div class="visualizer">
+<span></span><span></span><span></span>
+</div>
+<audio id="song4"> 
+<source src="song4.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="song-card" onclick="playSong('song5', this)">
+<img src="cover5.png" class="album">
+<div class="play-icon">▶</div>
+<div class="song-title">I'm Still</div>
+<div class="visualizer">
+<span></span><span></span><span></span>
+</div>
+<audio id="song5">
+<source src="song5.mp3" type="audio/mpeg">
+</audio>
+</div>
+</section>
+
+<section>
+<h2>The birthday Man 📸</h2>
+
+<div class="gallery">
+
+<div class="polaroid">
+<img src="photo1.jpg">
+<div class="caption">pookie 🎀</div>
+</div>
+
+<div class="polaroid">
+<img src="photo2.jpg">
+<div class="caption">mirror u🍷</div>
+</div>
+
+<div class="polaroid">
+<img src="photo3.jpg">
+<div class="caption">Good vibes ✨</div>
+</div>
+
+<div class="polaroid">
+<img src="photo4.jpg">
+<div class="caption">Musckells 💪🏼</div>
+</div>
+
+</div>
+<div class="constellation"></div>
+</section>
+
+<section class="why-we-met">
+
+<h2>Why I'm Glad We Met</h2>
+
+<p>
+Out of millions of people on the internet, hundreads of Discord servers, and endless random conversations… somehow our paths crossed. 🐾
+</p>
+
+<p>
+And I'm really glad they did. 😊
+</p>
+
+<p>
+Because behind the screen I found someone craziiee, funny, loving, caring and genuinely wonderful person. 🙂
+</p>
+
+<p>
+Some friendships start in classrooms, some at work, and some in the most unexpected places online.🌐📡
+</p>
+
+<p>
+Ours started with a simple Discord pre muted russian convos, and it turned into something really nice I can never let go.
+</p>
+ 
+<p>
+So today, I just want to say — I'm really happy for you.</p>
+<p> - Liza</p>
+</section>
+
+<section>
+<h1>And finally 🎂</h1>
+
+<p>
+Happy 24th Birthday Yash.
+Even though our friendship started with a simple Discord conversation,
+it turned into something I truly appreciate.
+
+I hope this new year of your life brings you
+exciting adventures, peaceful moments,
+success in everything you work toward,
+and many reasons to smile. 
+
+Thank you for being such a wonderful friend.
+
+And most of all —
+I hope the year ahead is as amazing as you are.🌙✨❣️
+</p>
+
+<button onclick="fireworks();launchConfetti();">Click ∞ to Celebrate 🎆</button>
+
+</section>
+
+</body>
+</html>
